@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A living visual atlas of knowledge from Wikipedia." />
+    <title>WikiScope — A living visual atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="WikiScope home">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span>WIKISCOPE</span>
+      </a>
+      <div class="topbar-meta"><span class="status-dot"></span><span>LIVE KNOWLEDGE GRAPH</span><span class="topbar-date" id="today"></span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">01 / EXPLORE THE ENCYCLOPEDIA</div>
+        <h1>See knowledge<br /><em>in motion.</em></h1>
+        <p class="hero-copy">Follow the threads between ideas. Search any Wikipedia topic and watch its story unfold through data, connections, and time.</p>
+        <form class="search-form" id="search-form">
+          <label class="sr-only" for="search-input">Search Wikipedia</label>
+          <input id="search-input" type="search" value="Climate change" placeholder="Try “Climate change” or “Jazz”" autocomplete="off" />
+          <button type="submit"><span>Explore</span><span class="arrow">↗</span></button>
+        </form>
+        <div class="quick-searches"><span>TRY A TOPIC</span><button type="button" data-topic="The ocean">The ocean</button><button type="button" data-topic="Artificial intelligence">Artificial intelligence</button><button type="button" data-topic="Ancient Rome">Ancient Rome</button></div>
+      </section>
+
+      <section class="dashboard" id="dashboard">
+        <div class="section-heading">
+          <div><div class="eyebrow">02 / CURRENT LENS</div><h2 id="topic-heading">Climate change</h2></div>
+          <div class="source-label"><span class="live-pulse"></span>WIKIPEDIA / EN</div>
+        </div>
+        <div class="dashboard-grid">
+          <article class="card story-card">
+            <div class="card-label">THE STORY</div>
+            <div class="story-content">
+              <div class="story-image" id="story-image"><span class="image-placeholder">W</span></div>
+              <div class="story-text"><p id="extract">Loading the latest encyclopedic context…</p><a id="article-link" href="#" target="_blank" rel="noreferrer">Read full article <span>↗</span></a></div>
+            </div>
+            <div class="story-foot"><span id="word-count">— WORDS</span><span id="updated-label">FETCHING DATA</span></div>
+          </article>
+          <article class="card activity-card">
+            <div class="card-head"><div class="card-label">PUBLIC ATTENTION</div><span class="metric" id="total-views">—</span></div>
+            <div class="metric-caption">pageviews / last 30 days</div>
+            <div class="chart-wrap"><canvas id="views-chart"></canvas></div>
+            <div class="chart-foot"><span>30 DAYS AGO</span><span>TODAY</span></div>
+          </article>
+          <article class="card constellation-card">
+            <div class="card-head"><div><div class="card-label">RELATED UNIVERSE</div><div class="card-subtitle">A constellation of linked ideas</div></div><span class="drag-hint">DRAG TO ROTATE</span></div>
+            <div id="scene-container"><div class="scene-loading">Mapping connections<span class="loader"></span></div></div>
+            <div class="node-legend"><span><i class="legend-core"></i>FOCUS</span><span><i class="legend-node"></i>RELATED ARTICLE</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="method">
+        <div class="eyebrow">03 / HOW IT WORKS</div>
+        <div class="method-grid"><p>WikiScope translates the open web into a visual field. Every search pulls from the <strong>MediaWiki API</strong> in real time.</p><div class="method-steps"><div><b>01</b><span>Read<br />the story</span></div><div><b>02</b><span>Measure<br />the pulse</span></div><div><b>03</b><span>Find<br />the threads</span></div></div></div>
+      </section>
+    </main>
+    <footer><span>WIKISCOPE / AN EXPERIMENT IN OPEN KNOWLEDGE</span><span>BUILT WITH MEDIAWIKI API · THREE.JS · CHART.JS</span></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
